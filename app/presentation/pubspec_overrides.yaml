@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: core_bloc,core_util,domain
+dependency_overrides:
+  core_bloc:
+    path: ../../core/bloc
+  core_util:
+    path: ../../core/util
+  domain:
+    path: ../domain

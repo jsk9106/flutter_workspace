@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: core_bloc
+dependency_overrides:
+  core_bloc:
+    path: ../bloc

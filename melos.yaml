@@ -1,0 +1,41 @@
+name: workspace_melos
+
+packages:
+  - app/**
+  - core/**
+  - feature/**
+  - tool/**
+
+command:
+  bootstrap:
+    hooks:
+      pre: melos run setup
+
+scripts:
+  # usage: melos run setup
+  setup:
+    run: |
+      melos exec -- rm -rf pubspec.lock &&
+      melos run clean &&
+      melos run pub_get &&
+      melos run build_runner
+
+  # usage: melos run clean
+  clean:
+    run: melos exec -- flutter clean
+
+  # usage: melos run update_packages
+  update_packages:
+    run: melos exec -- flutter update-packages --force-upgrade
+
+  # usage: melos run pub_upgrade
+  pub_upgrade:
+    run: melos exec -- flutter pub upgrade
+
+  # usage: melos run pub_get
+  pub_get:
+    run: melos exec -c 1 -- flutter pub get
+
+  # usage: melos run build_runner
+  build_runner:
+    run: melos exec --depends-on="build_runner" -- dart run build_runner build --delete-conflicting-outputs

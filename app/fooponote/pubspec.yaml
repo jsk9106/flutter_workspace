@@ -1,0 +1,46 @@
+name: fooponote
+description: "fooponote app"
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: 3.8.1
+  flutter: 3.32.8
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  flutter_flavorizr: 2.4.1
+
+  data:
+    path: ../data
+  domain:
+    path: ../domain
+  presentation:
+    path: ../presentation
+  di:
+    path: ../di
+
+  core_flutter_bloc:
+    path: ../../core/flutter_bloc
+  core_util:
+    path: ../../core/util
+
+  tool_fooponote_network:
+    path: ../../tool/fooponote/network
+  tool_fooponote_theme:
+    path: ../../tool/fooponote/theme
+  tool_fooponote_component:
+    path: ../../tool/fooponote/component
+
+  feature_auth:
+    path: ../../feature/auth/target/fooponote
+
+dev_dependencies:
+  flutter_lints: 5.0.0
+
+flutter:
+  uses-material-design: true

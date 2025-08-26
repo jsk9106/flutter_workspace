@@ -1,0 +1,31 @@
+name: feature_auth
+description: feature auth package.
+publish_to: none
+
+environment:
+  sdk: 3.8.1
+  flutter: 3.32.8
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  auth_data:
+    path: ../../data
+  auth_domain:
+    path: ../../domain
+  auth_presentation:
+    path: ../../presentation
+
+  auth_di:
+    path: ../../di
+
+  core_flutter_bloc:
+    path: ../../../../core/flutter_bloc
+  core_util:
+    path: ../../../../core/util
+
+  tool_base_component:
+    path: ../../../../tool/base/component
+  tool_base_theme:
+    path: ../../../../tool/base/theme

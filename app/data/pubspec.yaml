@@ -1,0 +1,14 @@
+name: data
+description: fooponote data package.
+publish_to: none
+
+environment:
+  sdk: 3.8.1
+  flutter: 3.32.8
+
+dependencies:
+  domain:
+    path: ../domain
+
+  core_util:
+    path: ../../core/util

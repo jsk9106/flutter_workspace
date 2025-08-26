@@ -1,0 +1,14 @@
+name: tool_fooponote_network
+description: tool fooponote network package.
+publish_to: none
+
+environment:
+  sdk: 3.8.1
+  flutter: 3.32.8
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  core_network:
+    path: ../../../core/network
