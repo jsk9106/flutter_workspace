@@ -1,7 +1,7 @@
-import 'package:tool_fooponote_network/network.dart';
+import 'package:tool_base_network/network.dart';
 
 class ProfileApi {
-  final FooponoteRestClient _client;
+  final FRestClient _client;
 
   const ProfileApi(this._client);
 

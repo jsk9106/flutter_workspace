@@ -1,13 +1,13 @@
 import 'package:core_util/util.dart';
 import 'package:flutter/material.dart';
-import 'package:tool_fooponote_component/component.dart';
-import 'package:tool_fooponote_theme/theme.dart';
+import 'package:tool_base_component/component.dart';
+import 'package:tool_base_theme/theme.dart';
 
-class FooponoteSearchBar extends StatelessWidget {
+class FSearchBar extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
 
-  const FooponoteSearchBar({super.key, required this.text, required this.onTap});
+  const FSearchBar({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +17,21 @@ class FooponoteSearchBar extends StatelessWidget {
       child: Container(
         height: 38.0,
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        decoration: BoxDecoration(color: context.colorScheme.darkGray, borderRadius: BorderRadius.circular(19.0)),
+        decoration: BoxDecoration(
+          color: context.colorScheme.darkGray,
+          borderRadius: BorderRadius.circular(19.0),
+        ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            FooponoteIcon.search(color: context.colorScheme.gray400),
+            FIcon.search(color: context.colorScheme.gray400),
             const SizedBox(width: 5.0),
             Expanded(
               child: Text(
                 text,
-                style: context.textTheme.default15Medium.copyWith(color: context.colorScheme.gray400),
+                style: context.textTheme.default15Medium.copyWith(
+                  color: context.colorScheme.gray400,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -38,8 +43,8 @@ class FooponoteSearchBar extends StatelessWidget {
   }
 }
 
-class ClindLoadingSearchBar extends StatelessWidget {
-  const ClindLoadingSearchBar({super.key});
+class FLoadingSearchBar extends StatelessWidget {
+  const FLoadingSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,27 +53,39 @@ class ClindLoadingSearchBar extends StatelessWidget {
       highlightColor: context.colorScheme.gray900,
       child: Container(
         height: 38.0,
-        decoration: BoxDecoration(color: context.colorScheme.gray800, borderRadius: BorderRadius.circular(19.0)),
+        decoration: BoxDecoration(
+          color: context.colorScheme.gray800,
+          borderRadius: BorderRadius.circular(19.0),
+        ),
       ),
     );
   }
 }
 
-class ClindSearchTextField extends StatefulWidget {
+class FSearchTextField extends StatefulWidget {
   final String text;
   final String hintText;
   final Function(String) onSearch;
 
-  const ClindSearchTextField({super.key, this.text = '', this.hintText = '', required this.onSearch});
+  const FSearchTextField({
+    super.key,
+    this.text = '',
+    this.hintText = '',
+    required this.onSearch,
+  });
 
   @override
-  State<ClindSearchTextField> createState() => _ClindSearchTextFieldState();
+  State<FSearchTextField> createState() => _FSearchTextFieldState();
 }
 
-class _ClindSearchTextFieldState extends State<ClindSearchTextField> {
-  late final TextEditingController _controller = TextEditingController(text: widget.text);
+class _FSearchTextFieldState extends State<FSearchTextField> {
+  late final TextEditingController _controller = TextEditingController(
+    text: widget.text,
+  );
   final FocusNode _focusNode = FocusNode();
-  late final ValueNotifier<String> _textNotifier = ValueNotifier<String>(widget.text);
+  late final ValueNotifier<String> _textNotifier = ValueNotifier<String>(
+    widget.text,
+  );
 
   @override
   void initState() {
@@ -108,9 +125,13 @@ class _ClindSearchTextFieldState extends State<ClindSearchTextField> {
               border: InputBorder.none,
               focusedBorder: InputBorder.none,
               hintText: widget.hintText,
-              hintStyle: context.textTheme.default16Regular.copyWith(color: context.colorScheme.gray600),
+              hintStyle: context.textTheme.default16Regular.copyWith(
+                color: context.colorScheme.gray600,
+              ),
             ),
-            style: context.textTheme.default16Regular.copyWith(color: context.colorScheme.gray200),
+            style: context.textTheme.default16Regular.copyWith(
+              color: context.colorScheme.gray200,
+            ),
             keyboardAppearance: context.colorScheme.brightness,
             textInputAction: TextInputAction.newline,
             keyboardType: TextInputType.multiline,
@@ -128,7 +149,7 @@ class _ClindSearchTextFieldState extends State<ClindSearchTextField> {
           child: GestureDetector(
             onTap: () => _controller.clear(),
             behavior: HitTestBehavior.translucent,
-            child: FooponoteIcon.cancel(color: context.colorScheme.gray200),
+            child: FIcon.cancel(color: context.colorScheme.gray200),
           ),
         ),
       ],

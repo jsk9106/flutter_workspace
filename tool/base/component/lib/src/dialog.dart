@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tool_fooponote_theme/theme.dart';
+import 'package:tool_base_theme/theme.dart';
 
-class FooponoteDialog extends StatelessWidget {
+class FDialog extends StatelessWidget {
   final Widget title;
   final double? buttonSpacing;
   final List<Widget> buttons;
   final bool barrierDismissible;
 
-  const FooponoteDialog({
+  const FDialog({
     super.key,
     required this.title,
     this.buttonSpacing,
@@ -25,9 +25,9 @@ class FooponoteDialog extends StatelessWidget {
   }) {
     return showRich(
       context,
-      title: FooponoteDialogTitle(title),
+      title: FDialogTitle(title),
       buttons: [
-        FooponoteDialogButton.confirm(
+        FDialogButton.confirm(
           context,
           text: confirmLabel,
           onTap: () {
@@ -54,9 +54,9 @@ class FooponoteDialog extends StatelessWidget {
   }) {
     return showRich(
       context,
-      title: FooponoteDialogTitle(title),
+      title: FDialogTitle(title),
       buttons: [
-        FooponoteDialogButton.cancel(
+        FDialogButton.cancel(
           context,
           text: cancelLabel,
           onTap: () {
@@ -65,7 +65,7 @@ class FooponoteDialog extends StatelessWidget {
             onCancel?.call();
           },
         ),
-        FooponoteDialogButton.confirm(
+        FDialogButton.confirm(
           context,
           text: confirmLabel,
           onTap: () {
@@ -89,8 +89,13 @@ class FooponoteDialog extends StatelessWidget {
   }) {
     return showDialog(
       context: context,
-      builder: (context) => FooponoteDialog(title: title, buttons: buttons, barrierDismissible: barrierDismissible),
-      barrierColor: barrierColor ?? context.colorScheme.black.withValues(alpha: 0.4),
+      builder: (context) => FDialog(
+        title: title,
+        buttons: buttons,
+        barrierDismissible: barrierDismissible,
+      ),
+      barrierColor:
+          barrierColor ?? context.colorScheme.black.withValues(alpha: 0.4),
       barrierDismissible: barrierDismissible,
     );
   }
@@ -125,7 +130,12 @@ class FooponoteDialog extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 18.0),
-              Row(children: List.generate(buttons.length, (index) => Expanded(child: buttons[index]))),
+              Row(
+                children: List.generate(
+                  buttons.length,
+                  (index) => Expanded(child: buttons[index]),
+                ),
+              ),
             ],
           ),
         ),
@@ -140,36 +150,61 @@ class FooponoteDialog extends StatelessWidget {
   }
 }
 
-class FooponoteDialogTitle extends StatelessWidget {
+class FDialogTitle extends StatelessWidget {
   final String text;
   final TextStyle? style;
 
-  const FooponoteDialogTitle(this.text, {super.key, this.style});
+  const FDialogTitle(this.text, {super.key, this.style});
 
   @override
   Widget build(BuildContext context) {
-    return Text(text, style: style ?? context.dialogTheme.titleTextStyle, textAlign: TextAlign.center);
+    return Text(
+      text,
+      style: style ?? context.dialogTheme.titleTextStyle,
+      textAlign: TextAlign.center,
+    );
   }
 }
 
-class FooponoteDialogButton extends StatelessWidget {
+class FDialogButton extends StatelessWidget {
   final Widget text;
   final Color backgroundColor;
   final VoidCallback onTap;
 
-  const FooponoteDialogButton({super.key, required this.text, required this.backgroundColor, required this.onTap});
+  const FDialogButton({
+    super.key,
+    required this.text,
+    required this.backgroundColor,
+    required this.onTap,
+  });
 
-  factory FooponoteDialogButton.cancel(BuildContext context, {String text = '취소', required VoidCallback onTap}) {
-    return FooponoteDialogButton(
-      text: Text(text, style: context.dialogTheme.cancelTextStyle, textAlign: TextAlign.center),
+  factory FDialogButton.cancel(
+    BuildContext context, {
+    String text = '취소',
+    required VoidCallback onTap,
+  }) {
+    return FDialogButton(
+      text: Text(
+        text,
+        style: context.dialogTheme.cancelTextStyle,
+        textAlign: TextAlign.center,
+      ),
       backgroundColor: context.dialogTheme.cancelBackgroundColor,
       onTap: onTap,
     );
   }
 
-  factory FooponoteDialogButton.confirm(BuildContext context, {String text = '확인', required VoidCallback onTap}) {
-    return FooponoteDialogButton(
-      text: Text(text, style: context.dialogTheme.confirmTextStyle, textAlign: TextAlign.center),
+  factory FDialogButton.confirm(
+    BuildContext context, {
+    String text = '확인',
+    required VoidCallback onTap,
+  }) {
+    return FDialogButton(
+      text: Text(
+        text,
+        style: context.dialogTheme.confirmTextStyle,
+        textAlign: TextAlign.center,
+      ),
       backgroundColor: context.dialogTheme.confirmBackgroundColor,
       onTap: onTap,
     );
@@ -183,10 +218,16 @@ class FooponoteDialogButton extends StatelessWidget {
       child: SizedBox(
         height: 43.0,
         child: DecoratedBox(
-          decoration: BoxDecoration(color: backgroundColor, borderRadius: BorderRadius.circular(6.0)),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(6.0),
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [text]),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [text],
+            ),
           ),
         ),
       ),

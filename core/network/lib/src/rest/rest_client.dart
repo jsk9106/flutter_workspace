@@ -7,25 +7,20 @@ const Duration connectTimeout = Duration(minutes: 1);
 class RestClient {
   late Dio _dio;
 
-  RestClient({
-    required String baseUrl,
-    Map<String, dynamic>? headers,
-  }) : _dio = Dio(
-          BaseOptions(
-            baseUrl: baseUrl,
-            headers: headers,
-            receiveTimeout: receiveTimeout,
-            sendTimeout: sendTimeout,
-            connectTimeout: connectTimeout,
-          ),
-        );
+  RestClient({required String baseUrl, Map<String, dynamic>? headers})
+    : _dio = Dio(
+        BaseOptions(
+          baseUrl: baseUrl,
+          headers: headers,
+          receiveTimeout: receiveTimeout,
+          sendTimeout: sendTimeout,
+          connectTimeout: connectTimeout,
+        ),
+      );
 
   BaseOptions get options => _dio.options;
 
-  void update({
-    String? baseUrl,
-    Map<String, dynamic>? headers,
-  }) {
+  void update({String? baseUrl, Map<String, dynamic>? headers}) {
     final BaseOptions options = _dio.options.copyWith(
       baseUrl: baseUrl,
       headers: headers,

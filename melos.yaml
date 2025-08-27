@@ -9,7 +9,7 @@ packages:
 command:
   bootstrap:
     hooks:
-      pre: melos run setup
+      post: melos run setup
 
 scripts:
   # usage: melos run setup
@@ -19,6 +19,11 @@ scripts:
       melos run clean &&
       melos run pub_get &&
       melos run build_runner
+
+  # usage: melos run analyze
+  analyze:
+    description: Analyze the project
+    exec: dart analyze .
 
   # usage: melos run clean
   clean:
@@ -39,3 +44,7 @@ scripts:
   # usage: melos run build_runner
   build_runner:
     run: melos exec --depends-on="build_runner" -- dart run build_runner build --delete-conflicting-outputs
+
+  # usage: melos run example_build_runner
+  example_build_runner:
+    run: melos exec --scope=example --depends-on="build_runner" -- dart run build_runner build --delete-conflicting-outputs

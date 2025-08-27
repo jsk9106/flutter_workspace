@@ -1,13 +1,13 @@
 import 'package:core_util/util.dart';
 import 'package:flutter/material.dart';
-import 'package:tool_fooponote_component/component.dart';
-import 'package:tool_fooponote_theme/theme.dart';
+import 'package:tool_base_component/component.dart';
+import 'package:tool_base_theme/theme.dart';
 
-class FooponoteSortFilter extends StatelessWidget {
+class FSortFilter extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
 
-  const FooponoteSortFilter({super.key, required this.text, required this.onTap});
+  const FSortFilter({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +17,15 @@ class FooponoteSortFilter extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          FooponoteIcon.expandMore(color: context.colorScheme.gray400),
+          FIcon.expandMore(color: context.colorScheme.gray400),
           const SizedBox(width: 3.0),
           Flexible(
-            child: Text(text, style: context.textTheme.default13Medium.copyWith(color: context.colorScheme.gray400)),
+            child: Text(
+              text,
+              style: context.textTheme.default13Medium.copyWith(
+                color: context.colorScheme.gray400,
+              ),
+            ),
           ),
         ],
       ),
@@ -28,8 +33,8 @@ class FooponoteSortFilter extends StatelessWidget {
   }
 }
 
-class ClindLoadingSortFilter extends StatelessWidget {
-  const ClindLoadingSortFilter({super.key});
+class FLoadingSortFilter extends StatelessWidget {
+  const FLoadingSortFilter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,10 @@ class ClindLoadingSortFilter extends StatelessWidget {
       child: Container(
         width: 60.0,
         height: 18.0,
-        decoration: BoxDecoration(color: context.colorScheme.gray800, borderRadius: BorderRadius.circular(4.0)),
+        decoration: BoxDecoration(
+          color: context.colorScheme.gray800,
+          borderRadius: BorderRadius.circular(4.0),
+        ),
       ),
     );
   }

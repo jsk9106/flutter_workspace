@@ -1,0 +1,49 @@
+name: example
+description: "example app"
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0
+  flutter: "^3.32.8"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  flutter_flavorizr: 2.4.1 # 개발 환경 관리
+  go_router: 16.2.0 # 라우트
+
+  data:
+    path: ../data
+  domain:
+    path: ../domain
+  presentation:
+    path: ../presentation
+  di:
+    path: ../di
+
+  core_flutter_bloc:
+    path: ../../core/flutter_bloc
+  core_util:
+    path: ../../core/util
+
+  tool_base_network:
+    path: ../../tool/base/network
+  tool_base_theme:
+    path: ../../tool/base/theme
+  tool_base_component:
+    path: ../../tool/base/component
+
+  feature_auth:
+    path: ../../feature/auth/target/base
+
+dev_dependencies:
+  flutter_lints: 6.0.0
+  build_runner: 2.7.0
+  injectable_generator: 2.8.1
+
+flutter:
+  uses-material-design: true

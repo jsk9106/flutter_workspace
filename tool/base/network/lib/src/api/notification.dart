@@ -1,11 +1,13 @@
-import 'package:tool_fooponote_network/network.dart';
+import 'package:tool_base_network/network.dart';
 
 class NotificationApi {
-  final FooponoteRestClient _client;
+  final FRestClient _client;
 
   const NotificationApi(this._client);
 
   Future<dynamic> getNotifications() {
-    return _client.get<dynamic>('/notification-api/notifications').then((value) => value.data);
+    return _client
+        .get<dynamic>('/notification-api/notifications')
+        .then((value) => value.data);
   }
 }

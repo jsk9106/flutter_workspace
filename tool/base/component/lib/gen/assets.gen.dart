@@ -1,3 +1,5 @@
+// dart format width=120
+
 /// GENERATED CODE - DO NOT MODIFY BY HAND
 /// *****************************************************
 ///  FlutterGen
@@ -5,11 +7,12 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
+// ignore_for_file: deprecated_member_use,directives_ordering,implicit_dynamic_list_literal,unnecessary_import
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// Directory path: assets/images/svgs
   $AssetsImagesSvgsGen get svgs => const $AssetsImagesSvgsGen();
 }
 
@@ -123,46 +126,46 @@ class $AssetsImagesSvgsGen {
 
   /// List of all assets
   List<String> get values => [
-        icArrowBack,
-        icBookmark,
-        icCancel,
-        icChatBubble,
-        icChevronRight,
-        icCircleNotifications,
-        icClose,
-        icDoNotDisturbOn,
-        icEdit,
-        icExpandMore,
-        icFavorite,
-        icFeaturedSeasonalAndGifts,
-        icFilterNone,
-        icFlagCircle,
-        icHomeOff,
-        icHomeOn,
-        icImagesMode,
-        icLogo,
-        icLogoSmall,
-        icLogout,
-        icMail,
-        icMoreHoriz,
-        icNotificationsOff,
-        icNotificationsOn,
-        icPayments,
-        icPersonOff,
-        icPersonOn,
-        icRestartAlt,
-        icSearch,
-        icSettings,
-        icSms,
-        icSourceEnvironment,
-        icUpload,
-        icVisibility,
-        icVolunteerActivism
-      ];
+    icArrowBack,
+    icBookmark,
+    icCancel,
+    icChatBubble,
+    icChevronRight,
+    icCircleNotifications,
+    icClose,
+    icDoNotDisturbOn,
+    icEdit,
+    icExpandMore,
+    icFavorite,
+    icFeaturedSeasonalAndGifts,
+    icFilterNone,
+    icFlagCircle,
+    icHomeOff,
+    icHomeOn,
+    icImagesMode,
+    icLogo,
+    icLogoSmall,
+    icLogout,
+    icMail,
+    icMoreHoriz,
+    icNotificationsOff,
+    icNotificationsOn,
+    icPayments,
+    icPersonOff,
+    icPersonOn,
+    icRestartAlt,
+    icSearch,
+    icSettings,
+    icSms,
+    icSourceEnvironment,
+    icUpload,
+    icVisibility,
+    icVolunteerActivism,
+  ];
 }
 
 class Assets {
-  Assets._();
+  const Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

@@ -1,16 +1,16 @@
 import 'package:core_util/util.dart';
 import 'package:flutter/material.dart';
-import 'package:tool_fooponote_component/component.dart';
-import 'package:tool_fooponote_theme/theme.dart';
+import 'package:tool_base_component/component.dart';
+import 'package:tool_base_theme/theme.dart';
 
-class FooponoteChannelTile extends StatelessWidget {
+class FChannelTile extends StatelessWidget {
   final String imageUrl;
   final String name;
   final int followCount;
   final VoidCallback onTap;
   final VoidCallback? onDelete;
 
-  const FooponoteChannelTile({
+  const FChannelTile({
     super.key,
     required this.imageUrl,
     required this.name,
@@ -27,7 +27,7 @@ class FooponoteChannelTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          ClindProfileImage(imageUrl: imageUrl, size: 46.0),
+          FProfileImage(imageUrl: imageUrl, size: 46.0),
           const SizedBox(width: 14.0),
           Expanded(
             child: Column(
@@ -35,14 +35,18 @@ class FooponoteChannelTile extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: context.textTheme.default15Medium.copyWith(color: context.colorScheme.gray100),
+                  style: context.textTheme.default15Medium.copyWith(
+                    color: context.colorScheme.gray100,
+                  ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 8.0),
                 Text(
                   '${followCount.convertToKMB()} 팔로우',
-                  style: context.textTheme.default14Regular.copyWith(color: context.colorScheme.gray600),
+                  style: context.textTheme.default14Regular.copyWith(
+                    color: context.colorScheme.gray600,
+                  ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -58,7 +62,7 @@ class FooponoteChannelTile extends StatelessWidget {
                 height: 46.0,
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child: FooponoteIcon.close(color: context.colorScheme.gray600),
+                  child: FIcon.close(color: context.colorScheme.gray600),
                 ),
               ),
             ),
@@ -69,7 +73,7 @@ class FooponoteChannelTile extends StatelessWidget {
   }
 }
 
-class FooponoteProfileTile extends StatelessWidget {
+class FProfileTile extends StatelessWidget {
   final String imageUrl;
   final String channel;
   final String company;
@@ -77,7 +81,7 @@ class FooponoteProfileTile extends StatelessWidget {
   final VoidCallback onChannelTapped;
   final VoidCallback onCompanyTapped;
 
-  const FooponoteProfileTile({
+  const FProfileTile({
     super.key,
     required this.imageUrl,
     required this.channel,
@@ -95,7 +99,7 @@ class FooponoteProfileTile extends StatelessWidget {
         GestureDetector(
           onTap: () => onChannelTapped.call(),
           behavior: HitTestBehavior.translucent,
-          child: ClindProfileImage(imageUrl: imageUrl, size: 34.0),
+          child: FProfileImage(imageUrl: imageUrl, size: 34.0),
         ),
         const SizedBox(width: 8.0),
         Expanded(
@@ -123,7 +127,9 @@ class FooponoteProfileTile extends StatelessWidget {
                   const SizedBox(width: 7.0),
                   Text(
                     createdAt.toTimeAgo(),
-                    style: context.textTheme.default13Light.copyWith(color: context.colorScheme.gray500),
+                    style: context.textTheme.default13Light.copyWith(
+                      color: context.colorScheme.gray500,
+                    ),
                   ),
                 ],
               ),
@@ -133,7 +139,9 @@ class FooponoteProfileTile extends StatelessWidget {
                 behavior: HitTestBehavior.translucent,
                 child: Text(
                   company,
-                  style: context.textTheme.default13Regular.copyWith(color: context.colorScheme.gray400),
+                  style: context.textTheme.default13Regular.copyWith(
+                    color: context.colorScheme.gray400,
+                  ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -146,14 +154,14 @@ class FooponoteProfileTile extends StatelessWidget {
   }
 }
 
-class ClindNotificationTile extends StatelessWidget {
+class FNotificationTile extends StatelessWidget {
   final Widget? leading;
   final String title;
   final String content;
   final DateTime createdAt;
   final VoidCallback onTap;
 
-  const ClindNotificationTile({
+  const FNotificationTile({
     super.key,
     this.leading,
     required this.title,
@@ -162,7 +170,7 @@ class ClindNotificationTile extends StatelessWidget {
     required this.onTap,
   });
 
-  factory ClindNotificationTile.icon({
+  factory FNotificationTile.icon({
     required String icon,
     required Color iconColor,
     required String title,
@@ -170,8 +178,8 @@ class ClindNotificationTile extends StatelessWidget {
     required DateTime createdAt,
     required VoidCallback onTap,
   }) {
-    return ClindNotificationTile(
-      leading: ClindSvgPicture.asset(icon, color: iconColor),
+    return FNotificationTile(
+      leading: FSvgPicture.asset(icon, color: iconColor),
       title: title,
       content: content,
       createdAt: createdAt,
@@ -197,7 +205,9 @@ class ClindNotificationTile extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: context.textTheme.default13Medium.copyWith(color: context.colorScheme.gray500),
+                    style: context.textTheme.default13Medium.copyWith(
+                      color: context.colorScheme.gray500,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -214,7 +224,9 @@ class ClindNotificationTile extends StatelessWidget {
                   const SizedBox(height: 8.0),
                   Text(
                     createdAt.toTimeAgo(),
-                    style: context.textTheme.default13Medium.copyWith(color: context.colorScheme.gray500),
+                    style: context.textTheme.default13Medium.copyWith(
+                      color: context.colorScheme.gray500,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -228,32 +240,42 @@ class ClindNotificationTile extends StatelessWidget {
   }
 }
 
-class ClindSettingTile extends StatelessWidget {
+class FSettingTile extends StatelessWidget {
   final Widget? leading;
   final String title;
   final Widget? trailing;
   final VoidCallback onTap;
 
-  const ClindSettingTile({super.key, this.leading, this.title = '', this.trailing, required this.onTap});
+  const FSettingTile({
+    super.key,
+    this.leading,
+    this.title = '',
+    this.trailing,
+    required this.onTap,
+  });
 
-  factory ClindSettingTile.simple(BuildContext context, {required String title, required VoidCallback onTap}) {
-    return ClindSettingTile(
+  factory FSettingTile.simple(
+    BuildContext context, {
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return FSettingTile(
       title: title,
-      trailing: FooponoteIcon.chevronRight(color: context.colorScheme.gray600),
+      trailing: FIcon.chevronRight(color: context.colorScheme.gray600),
       onTap: onTap,
     );
   }
 
-  factory ClindSettingTile.icon(
+  factory FSettingTile.icon(
     BuildContext context, {
     required Widget icon,
     required String title,
     required VoidCallback onTap,
   }) {
-    return ClindSettingTile(
+    return FSettingTile(
       leading: icon,
       title: title,
-      trailing: FooponoteIcon.chevronRight(color: context.colorScheme.gray500),
+      trailing: FIcon.chevronRight(color: context.colorScheme.gray500),
       onTap: onTap,
     );
   }
@@ -266,14 +288,21 @@ class ClindSettingTile extends StatelessWidget {
       child: Container(
         height: 50.0,
         color: context.colorScheme.lightBlack,
-        padding: const EdgeInsets.only(top: 13.0, bottom: 13.0, left: 20.0, right: 8.0),
+        padding: const EdgeInsets.only(
+          top: 13.0,
+          bottom: 13.0,
+          left: 20.0,
+          right: 8.0,
+        ),
         child: Row(
           children: [
             if (leading != null) ...[leading!, const SizedBox(width: 10.0)],
             Expanded(
               child: Text(
                 title,
-                style: context.textTheme.default17Regular.copyWith(color: context.colorScheme.gray200),
+                style: context.textTheme.default17Regular.copyWith(
+                  color: context.colorScheme.gray200,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),

@@ -4,8 +4,8 @@ publish_to: none
 version: 1.0.0+1
 
 environment:
-  sdk: 3.8.1
-  flutter: 3.32.8
+  sdk: ^3.9.0
+  flutter: "^3.32.8"
 
 dependencies:
   flutter:
@@ -29,18 +29,18 @@ dependencies:
   core_util:
     path: ../../core/util
 
-  tool_fooponote_network:
-    path: ../../tool/fooponote/network
-  tool_fooponote_theme:
-    path: ../../tool/fooponote/theme
-  tool_fooponote_component:
-    path: ../../tool/fooponote/component
+  tool_base_network:
+    path: ../../tool/base/network
+  tool_base_theme:
+    path: ../../tool/base/theme
+  tool_base_component:
+    path: ../../tool/base/component
 
   feature_auth:
-    path: ../../feature/auth/target/fooponote
+    path: ../../feature/auth/target/base
 
 dev_dependencies:
-  flutter_lints: 5.0.0
+  flutter_lints: 6.0.0
 
 flutter:
   uses-material-design: true

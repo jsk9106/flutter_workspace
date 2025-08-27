@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:core_flutter_bloc/flutter_bloc.dart';
 import 'package:core_util/util.dart';
+import 'package:feature_auth/fooponote.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fooponote/page/splash.dart';
 import 'package:presentation/presentation.dart';
-import 'package:tool_fooponote_component/component.dart';
-import 'package:tool_fooponote_theme/theme.dart';
-import 'package:feature_auth/fooponote.dart';
+import 'package:tool_base_component/component.dart';
+import 'package:tool_base_theme/theme.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
           switch (state.data) {
             case 0:
             case 1:
-              return FooponoteWriteButton(onTap: () => () {});
+              return FWriteButton(onTap: () => () {});
             default:
               return const SizedBox.shrink();
           }

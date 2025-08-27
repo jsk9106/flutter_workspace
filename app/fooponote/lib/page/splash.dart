@@ -3,9 +3,9 @@ import 'package:core_util/util.dart';
 import 'package:di/di.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
-import 'package:tool_fooponote_component/component.dart';
-import 'package:tool_fooponote_theme/gen/colors.gen.dart';
-import 'package:tool_fooponote_theme/theme.dart';
+import 'package:tool_base_component/component.dart';
+import 'package:tool_base_theme/gen/colors.gen.dart';
+import 'package:tool_base_theme/theme.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

@@ -1,16 +1,16 @@
 import 'package:core_util/util.dart';
 import 'package:flutter/material.dart';
-import 'package:tool_fooponote_component/component.dart';
-import 'package:tool_fooponote_theme/gen/gen.dart';
-import 'package:tool_fooponote_theme/theme.dart';
+import 'package:tool_base_component/component.dart';
+import 'package:tool_base_theme/gen/gen.dart';
+import 'package:tool_base_theme/theme.dart';
 
-class FooponoteCardButton extends StatelessWidget {
+class FCardButton extends StatelessWidget {
   final Widget icon;
   final String text;
   final bool isSelected;
   final VoidCallback onTap;
 
-  const FooponoteCardButton({
+  const FCardButton({
     super.key,
     required this.icon,
     required this.text,
@@ -18,31 +18,41 @@ class FooponoteCardButton extends StatelessWidget {
     required this.onTap,
   });
 
-  factory FooponoteCardButton.like(
+  factory FCardButton.like(
     BuildContext context, {
     int count = 0,
     bool isSelected = false,
     required VoidCallback onTap,
   }) {
-    return FooponoteCardButton(
-      icon: FooponoteIcon.favorite(color: isSelected ? ColorName.mainRed : context.colorScheme.gray500),
+    return FCardButton(
+      icon: FIcon.favorite(
+        color: isSelected ? ColorName.mainRed : context.colorScheme.gray500,
+      ),
       text: count > 0 ? count.toDecimal() : '좋아요',
       isSelected: isSelected,
       onTap: onTap,
     );
   }
 
-  factory FooponoteCardButton.comment(BuildContext context, {int count = 0, required VoidCallback onTap}) {
-    return FooponoteCardButton(
-      icon: FooponoteIcon.chatBubble(color: context.colorScheme.gray500),
+  factory FCardButton.comment(
+    BuildContext context, {
+    int count = 0,
+    required VoidCallback onTap,
+  }) {
+    return FCardButton(
+      icon: FIcon.chatBubble(color: context.colorScheme.gray500),
       text: count > 0 ? count.toDecimal() : '댓글',
       onTap: onTap,
     );
   }
 
-  factory FooponoteCardButton.view(BuildContext context, {int count = 0, required VoidCallback onTap}) {
-    return FooponoteCardButton(
-      icon: FooponoteIcon.visibility(color: context.colorScheme.gray500),
+  factory FCardButton.view(
+    BuildContext context, {
+    int count = 0,
+    required VoidCallback onTap,
+  }) {
+    return FCardButton(
+      icon: FIcon.visibility(color: context.colorScheme.gray500),
       text: count > 0 ? count.toDecimal() : '조회수',
       onTap: onTap,
     );
@@ -66,8 +76,12 @@ class FooponoteCardButton extends StatelessWidget {
                 child: Text(
                   text,
                   style: isSelected
-                      ? context.textTheme.default14Medium.copyWith(color: ColorName.mainRed)
-                      : context.textTheme.default14Regular.copyWith(color: context.colorScheme.gray400),
+                      ? context.textTheme.default14Medium.copyWith(
+                          color: ColorName.mainRed,
+                        )
+                      : context.textTheme.default14Regular.copyWith(
+                          color: context.colorScheme.gray400,
+                        ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -80,10 +94,10 @@ class FooponoteCardButton extends StatelessWidget {
   }
 }
 
-class FooponoteWriteButton extends StatelessWidget {
+class FWriteButton extends StatelessWidget {
   final VoidCallback onTap;
 
-  const FooponoteWriteButton({super.key, required this.onTap});
+  const FWriteButton({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -92,15 +106,23 @@ class FooponoteWriteButton extends StatelessWidget {
       behavior: HitTestBehavior.translucent,
       child: Container(
         height: 44.0,
-        decoration: BoxDecoration(color: ColorName.writingButton, borderRadius: BorderRadius.circular(25.0)),
+        decoration: BoxDecoration(
+          color: ColorName.writingButton,
+          borderRadius: BorderRadius.circular(25.0),
+        ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(width: 15.0),
-            FooponoteIcon.edit(color: ColorName.white),
+            FIcon.edit(color: ColorName.white),
             const SizedBox(width: 3.0),
             Flexible(
-              child: Text('글쓰기', style: context.textTheme.default14Medium.copyWith(color: ColorName.white)),
+              child: Text(
+                '글쓰기',
+                style: context.textTheme.default14Medium.copyWith(
+                  color: ColorName.white,
+                ),
+              ),
             ),
             const SizedBox(width: 15.0),
           ],

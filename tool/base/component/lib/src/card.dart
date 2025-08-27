@@ -1,9 +1,9 @@
 import 'package:core_util/util.dart';
 import 'package:flutter/material.dart';
-import 'package:tool_fooponote_component/component.dart';
-import 'package:tool_fooponote_theme/theme.dart';
+import 'package:tool_base_component/component.dart';
+import 'package:tool_base_theme/theme.dart';
 
-class FooponotePostCard extends StatelessWidget {
+class FPostCard extends StatelessWidget {
   final String imageUrl;
   final String channel;
   final String company;
@@ -22,7 +22,7 @@ class FooponotePostCard extends StatelessWidget {
   final VoidCallback onViewTapped;
   final VoidCallback onTap;
 
-  FooponotePostCard({
+  FPostCard({
     super.key,
     required this.imageUrl,
     required this.channel,
@@ -41,7 +41,8 @@ class FooponotePostCard extends StatelessWidget {
     required this.onCommentTapped,
     required this.onViewTapped,
     required this.onTap,
-  }) : thumbnailUrls = thumbnailUrls?.where((url) => url.isWebUrl).toList() ?? [];
+  }) : thumbnailUrls =
+           thumbnailUrls?.where((url) => url.isWebUrl).toList() ?? [];
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,7 @@ class FooponotePostCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    FooponoteProfileTile(
+                    FProfileTile(
                       imageUrl: imageUrl,
                       channel: channel,
                       company: company,
@@ -81,7 +82,10 @@ class FooponotePostCard extends StatelessWidget {
                               children: [
                                 Text(
                                   title,
-                                  style: context.textTheme.default17Medium.copyWith(color: context.colorScheme.gray100),
+                                  style: context.textTheme.default17Medium
+                                      .copyWith(
+                                        color: context.colorScheme.gray100,
+                                      ),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -89,10 +93,11 @@ class FooponotePostCard extends StatelessWidget {
                                 Flexible(
                                   child: Text(
                                     content,
-                                    style: context.textTheme.default15Regular.copyWith(
-                                      color: context.colorScheme.gray400,
-                                      height: 18.75 / 15.0,
-                                    ),
+                                    style: context.textTheme.default15Regular
+                                        .copyWith(
+                                          color: context.colorScheme.gray400,
+                                          height: 18.75 / 15.0,
+                                        ),
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -102,7 +107,7 @@ class FooponotePostCard extends StatelessWidget {
                           ),
                           if (thumbnailUrls.isNotEmpty) ...[
                             const SizedBox(width: 29.0),
-                            FooponoteThumbnailImage(imageUrls: thumbnailUrls),
+                            FThumbnailImage(imageUrls: thumbnailUrls),
                           ],
                         ],
                       ),
@@ -115,7 +120,7 @@ class FooponotePostCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: FooponoteCardButton.like(
+                  child: FCardButton.like(
                     context,
                     count: likeCount,
                     isSelected: isLike,
@@ -123,10 +128,18 @@ class FooponotePostCard extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: FooponoteCardButton.comment(context, count: commentCount, onTap: () => onCommentTapped.call()),
+                  child: FCardButton.comment(
+                    context,
+                    count: commentCount,
+                    onTap: () => onCommentTapped.call(),
+                  ),
                 ),
                 Expanded(
-                  child: FooponoteCardButton.view(context, count: viewCount, onTap: () => onViewTapped.call()),
+                  child: FCardButton.view(
+                    context,
+                    count: viewCount,
+                    onTap: () => onViewTapped.call(),
+                  ),
                 ),
               ],
             ),
@@ -137,8 +150,8 @@ class FooponotePostCard extends StatelessWidget {
   }
 }
 
-class FooponoteLoadingPostCard extends StatelessWidget {
-  const FooponoteLoadingPostCard({super.key});
+class FLoadingPostCard extends StatelessWidget {
+  const FLoadingPostCard({super.key});
 
   @override
   Widget build(BuildContext context) {

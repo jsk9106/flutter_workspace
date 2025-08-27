@@ -1,0 +1,22 @@
+# melos_managed_dependency_overrides: auth_data,auth_di,auth_domain,auth_presentation,core_bloc,core_flutter_bloc,core_theme,core_util,tool_base_component,tool_base_theme
+dependency_overrides:
+  auth_data:
+    path: ../../data
+  auth_di:
+    path: ../../di
+  auth_domain:
+    path: ../../domain
+  auth_presentation:
+    path: ../../presentation
+  core_bloc:
+    path: ../../../../core/bloc
+  core_flutter_bloc:
+    path: ../../../../core/flutter_bloc
+  core_theme:
+    path: ../../../../core/theme
+  core_util:
+    path: ../../../../core/util
+  tool_base_component:
+    path: ../../../../tool/base/component
+  tool_base_theme:
+    path: ../../../../tool/base/theme

@@ -1,13 +1,18 @@
 import 'package:core_util/util.dart';
 import 'package:flutter/material.dart';
-import 'package:tool_fooponote_theme/theme.dart';
+import 'package:tool_base_theme/theme.dart';
 
-class ClindChannelChip extends StatelessWidget {
+class FChannelChip extends StatelessWidget {
   final String imageUrl;
   final String name;
   final VoidCallback onTap;
 
-  const ClindChannelChip({super.key, required this.imageUrl, required this.name, required this.onTap});
+  const FChannelChip({
+    super.key,
+    required this.imageUrl,
+    required this.name,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,10 @@ class ClindChannelChip extends StatelessWidget {
       onTap: () => onTap.call(),
       behavior: HitTestBehavior.translucent,
       child: DecoratedBox(
-        decoration: BoxDecoration(color: context.colorScheme.gray800, borderRadius: BorderRadius.circular(20.0)),
+        decoration: BoxDecoration(
+          color: context.colorScheme.gray800,
+          borderRadius: BorderRadius.circular(20.0),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(4.0),
           child: Row(
@@ -23,12 +31,19 @@ class ClindChannelChip extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(12.5),
-                child: Image.network(imageUrl, width: 25.0, height: 25.0, fit: BoxFit.cover),
+                child: Image.network(
+                  imageUrl,
+                  width: 25.0,
+                  height: 25.0,
+                  fit: BoxFit.cover,
+                ),
               ),
               const SizedBox(width: 3.0),
               Text(
                 name,
-                style: context.textTheme.default12Regular.copyWith(color: context.colorScheme.gray100),
+                style: context.textTheme.default12Regular.copyWith(
+                  color: context.colorScheme.gray100,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -40,8 +55,8 @@ class ClindChannelChip extends StatelessWidget {
   }
 }
 
-class ClindLoadingChannelChip extends StatelessWidget {
-  const ClindLoadingChannelChip({super.key});
+class FLoadingChannelChip extends StatelessWidget {
+  const FLoadingChannelChip({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +66,10 @@ class ClindLoadingChannelChip extends StatelessWidget {
       child: Container(
         width: 88.0,
         height: 33.0,
-        decoration: BoxDecoration(color: context.colorScheme.gray800, borderRadius: BorderRadius.circular(20.0)),
+        decoration: BoxDecoration(
+          color: context.colorScheme.gray800,
+          borderRadius: BorderRadius.circular(20.0),
+        ),
       ),
     );
   }
