@@ -4,7 +4,7 @@ const Duration receiveTimeout = Duration(minutes: 1);
 const Duration sendTimeout = Duration(minutes: 1);
 const Duration connectTimeout = Duration(minutes: 1);
 
-class RestClient {
+abstract class RestClient {
   late Dio _dio;
 
   RestClient({required String baseUrl, Map<String, dynamic>? headers})

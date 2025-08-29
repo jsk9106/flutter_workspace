@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-abstract class ICoreThemeData {
-  final ICoreAppBarTheme appBarTheme;
-  final ICoreTextTheme textTheme;
-  final ICoreColorScheme colorScheme;
-  final ICoreNavigationBarThemeData navigationBarThemeData;
-  final ICoreDialogTheme dialogTheme;
-  final ICoreDividerTheme dividerTheme;
+abstract class CoreThemeData {
+  final CoreAppBarTheme appBarTheme;
+  final CoreTextTheme textTheme;
+  final CoreColorScheme colorScheme;
+  final CoreNavigationBarThemeData navigationBarThemeData;
+  final CoreDialogTheme dialogTheme;
+  final CoreDividerTheme dividerTheme;
 
-  const ICoreThemeData({
+  const CoreThemeData({
     required this.appBarTheme,
     required this.textTheme,
     required this.colorScheme,
@@ -19,7 +19,7 @@ abstract class ICoreThemeData {
   });
 }
 
-abstract class ICoreAppBarTheme {
+abstract class CoreAppBarTheme {
   final SystemUiOverlayStyle systemOverlayStyle;
   final Color primaryColor;
   final Color backgroundColor;
@@ -27,7 +27,7 @@ abstract class ICoreAppBarTheme {
   final double titleSpacing;
   final bool centerTitle;
 
-  const ICoreAppBarTheme({
+  const CoreAppBarTheme({
     required this.systemOverlayStyle,
     required this.primaryColor,
     required this.backgroundColor,
@@ -37,29 +37,27 @@ abstract class ICoreAppBarTheme {
   });
 }
 
-abstract class ICoreTextTheme {
-  const ICoreTextTheme();
+abstract class CoreTextTheme {
+  const CoreTextTheme();
 }
 
-abstract class ICoreColorScheme {
+abstract class CoreColorScheme {
   final Brightness brightness;
 
-  const ICoreColorScheme({
-    required this.brightness,
-  });
+  const CoreColorScheme({required this.brightness});
 }
 
-abstract class ICoreNavigationBarThemeData {
+abstract class CoreNavigationBarThemeData {
   final Color backgroundColor;
   final double height;
 
-  const ICoreNavigationBarThemeData({
+  const CoreNavigationBarThemeData({
     required this.backgroundColor,
     required this.height,
   });
 }
 
-abstract class ICoreDialogTheme {
+abstract class CoreDialogTheme {
   final TextStyle titleTextStyle;
   final Color backgroundColor;
   final TextStyle confirmTextStyle;
@@ -67,7 +65,7 @@ abstract class ICoreDialogTheme {
   final TextStyle cancelTextStyle;
   final Color cancelBackgroundColor;
 
-  const ICoreDialogTheme({
+  const CoreDialogTheme({
     required this.titleTextStyle,
     required this.backgroundColor,
     required this.confirmTextStyle,
@@ -77,10 +75,8 @@ abstract class ICoreDialogTheme {
   });
 }
 
-abstract class ICoreDividerTheme {
+abstract class CoreDividerTheme {
   final Color color;
 
-  const ICoreDividerTheme({
-    required this.color,
-  });
+  const CoreDividerTheme({required this.color});
 }

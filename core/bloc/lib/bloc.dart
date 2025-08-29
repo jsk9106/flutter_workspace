@@ -1,3 +1,2 @@
-library;
-
-export 'src/bloc.dart';
+export 'src/cubit.dart';
+export 'src/state.dart';

@@ -1,4 +1,4 @@
-import 'package:core_util/src/util.dart';
+import 'package:core_util/util.dart';
 
 extension StringExtension on String {
   bool get isWebUrl {

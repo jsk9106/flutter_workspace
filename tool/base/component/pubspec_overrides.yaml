@@ -1,8 +1,0 @@
-# melos_managed_dependency_overrides: core_theme,core_util,tool_base_theme
-dependency_overrides:
-  core_theme:
-    path: ../../../core/theme
-  core_util:
-    path: ../../../core/util
-  tool_base_theme:
-    path: ../theme

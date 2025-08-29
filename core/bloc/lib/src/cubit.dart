@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:core_bloc/src/state.dart';
 
-abstract class IFlowCubit<DataT> extends Cubit<IFlowState<DataT>> with IFlowCubitMixin<DataT> {
-  IFlowCubit([IFlowState<DataT>? state]) : super(state ?? IdleState<DataT>());
+abstract class FlowCubit<DataT> extends Cubit<FlowState<DataT>>
+    with FlowCubitMixin<DataT> {
+  FlowCubit([FlowState<DataT>? state]) : super(state ?? IdleState<DataT>());
 }
 
-mixin IFlowCubitMixin<DataT> on Cubit<IFlowState<DataT>> {
+mixin FlowCubitMixin<DataT> on Cubit<FlowState<DataT>> {
   void emitIdle() {
     _emit(IdleState<DataT>(data: state.data));
   }
@@ -27,10 +28,12 @@ mixin IFlowCubitMixin<DataT> on Cubit<IFlowState<DataT>> {
   }
 
   void emitError([dynamic error, StackTrace? stackTrace]) {
-    _emit(ErrorState<DataT>(data: state.data, error: error, stackTrace: stackTrace));
+    _emit(
+      ErrorState<DataT>(data: state.data, error: error, stackTrace: stackTrace),
+    );
   }
 
-  void _emit(IFlowState<DataT> state) {
+  void _emit(FlowState<DataT> state) {
     if (isClosed) return;
     emit(state);
   }

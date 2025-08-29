@@ -1,0 +1,28 @@
+flavors:
+  dev:
+    app:
+      name: "[DEV]example"
+    android:
+      applicationId: "com.example.dev"
+      compileSdkVersion: 34
+      targetSdkVersion: 33
+      # firebase:
+      #   config: "./firebase/dev/google-services.json"
+    ios:
+      bundleId: "com.example.dev"
+      # firebase:
+      #   config: "./firebase/dev/GoogleService-Info.plist"
+
+  prod:
+    app:
+      name: "example"
+    android:
+      applicationId: "com.example"
+      compileSdkVersion: 34
+      targetSdkVersion: 33
+      # firebase:
+      #   config: "./firebase/prod/google-services.json"
+    ios:
+      bundleId: "com.example"
+      # firebase:
+      #   config: "./firebase/prod/GoogleService-Info.plist"

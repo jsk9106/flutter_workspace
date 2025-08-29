@@ -1,16 +1,15 @@
 import 'package:core_bloc/bloc.dart';
+import 'package:core_flutter_bloc/src/internal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:core_flutter_bloc/src/internal.dart';
-
-class FlowBlocListener<BlocT extends BlocBase<IFlowState<DataT>>, DataT>
-    extends BlocListener<BlocT, IFlowState<DataT>> {
+class FlowBlocListener<BlocT extends BlocBase<FlowState<DataT>>, DataT>
+    extends BlocListener<BlocT, FlowState<DataT>> {
   const FlowBlocListener({
-    required BlocWidgetListener<IFlowState<DataT>> listener,
+    required BlocWidgetListener<FlowState<DataT>> listener,
     super.key,
     super.bloc,
-    BlocListenerCondition<IFlowState<DataT>>? listenWhen,
+    BlocListenerCondition<FlowState<DataT>>? listenWhen,
     super.child,
   }) : super(listener: listener, listenWhen: listenWhen);
 
@@ -23,8 +22,8 @@ class FlowBlocListener<BlocT extends BlocBase<IFlowState<DataT>>, DataT>
     BlocWidgetListener<EmptyState<DataT>>? onEmpty,
     BlocWidgetListener<DataState<DataT>>? onData,
     BlocWidgetListener<ErrorState<DataT>>? onError,
-    BlocWidgetListener<IFlowState<DataT>>? onElse,
-    BlocListenerCondition<IFlowState<DataT>>? listenWhen,
+    BlocWidgetListener<FlowState<DataT>>? onElse,
+    BlocListenerCondition<FlowState<DataT>>? listenWhen,
   }) {
     return FlowBlocListener<BlocT, DataT>(
       key: key,

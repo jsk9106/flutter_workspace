@@ -1,16 +1,18 @@
-import 'package:core_flutter_bloc/flutter_bloc.dart';
+import 'package:core_bloc/bloc.dart';
+import 'package:core_flutter_bloc/src/bloc_builder.dart';
+import 'package:core_flutter_bloc/src/bloc_listener.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 extension InteralFlowBlocBuilder on FlowBlocBuilder {
-  static BlocWidgetBuilder<BlocT> when<DataT, BlocT extends IFlowState<DataT>>({
+  static BlocWidgetBuilder<BlocT> when<DataT, BlocT extends FlowState<DataT>>({
     BlocWidgetBuilder<IdleState<DataT>>? idle,
     BlocWidgetBuilder<LoadingState<DataT>>? loading,
     BlocWidgetBuilder<LoadMoreState<DataT>>? loadMore,
     BlocWidgetBuilder<EmptyState<DataT>>? empty,
     BlocWidgetBuilder<DataState<DataT>>? data,
     BlocWidgetBuilder<ErrorState<DataT>>? error,
-    BlocWidgetBuilder<IFlowState<DataT>>? orElse,
+    BlocWidgetBuilder<FlowState<DataT>>? orElse,
   }) {
     return (context, state) {
       if (idle != null && state is IdleState<DataT>) {
@@ -34,14 +36,15 @@ extension InteralFlowBlocBuilder on FlowBlocBuilder {
 }
 
 extension InteralFlowBlocListener on FlowBlocListener {
-  static BlocWidgetListener<BlocT> when<DataT, BlocT extends IFlowState<DataT>>({
+  static BlocWidgetListener<BlocT>
+  when<DataT, BlocT extends FlowState<DataT>>({
     BlocWidgetListener<IdleState<DataT>>? onIdle,
     BlocWidgetListener<LoadingState<DataT>>? onLoading,
     BlocWidgetListener<LoadMoreState<DataT>>? onLoadMore,
     BlocWidgetListener<EmptyState<DataT>>? onEmpty,
     BlocWidgetListener<DataState<DataT>>? onData,
     BlocWidgetListener<ErrorState<DataT>>? onError,
-    BlocWidgetListener<IFlowState<DataT>>? onElse,
+    BlocWidgetListener<FlowState<DataT>>? onElse,
   }) {
     return (context, state) {
       if (onIdle != null && state is IdleState<DataT>) {

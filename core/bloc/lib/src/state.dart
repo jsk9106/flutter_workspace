@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-abstract class IFlowState<DataT> extends Equatable {
-  const IFlowState({DataT? data}) : _data = data;
+sealed class FlowState<DataT> extends Equatable {
+  const FlowState({DataT? data}) : _data = data;
 
   final DataT? _data;
 
@@ -13,23 +13,23 @@ abstract class IFlowState<DataT> extends Equatable {
   List<Object?> get props => [data];
 }
 
-final class IdleState<DataT> extends IFlowState<DataT> {
+final class IdleState<DataT> extends FlowState<DataT> {
   const IdleState({super.data});
 }
 
-final class LoadingState<DataT> extends IFlowState<DataT> {
+final class LoadingState<DataT> extends FlowState<DataT> {
   const LoadingState({super.data});
 }
 
-final class LoadMoreState<DataT> extends IFlowState<DataT> {
+final class LoadMoreState<DataT> extends FlowState<DataT> {
   const LoadMoreState({super.data});
 }
 
-final class EmptyState<DataT> extends IFlowState<DataT> {
+final class EmptyState<DataT> extends FlowState<DataT> {
   const EmptyState({super.data});
 }
 
-final class DataState<DataT> extends IFlowState<DataT> {
+final class DataState<DataT> extends FlowState<DataT> {
   const DataState({required super.data, this.updatedAt});
 
   @override
@@ -38,15 +38,14 @@ final class DataState<DataT> extends IFlowState<DataT> {
   final DateTime? updatedAt;
 
   @override
-  List<Object?> get props => [data, if (updatedAt != null) updatedAt!.millisecondsSinceEpoch];
+  List<Object?> get props => [
+    data,
+    if (updatedAt != null) updatedAt!.millisecondsSinceEpoch,
+  ];
 }
 
-final class ErrorState<DataT> extends IFlowState<DataT> {
-  const ErrorState({
-    super.data,
-    this.error,
-    this.stackTrace,
-  });
+final class ErrorState<DataT> extends FlowState<DataT> {
+  const ErrorState({super.data, this.error, this.stackTrace});
 
   final dynamic error;
   final StackTrace? stackTrace;

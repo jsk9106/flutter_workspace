@@ -1,3 +1,1 @@
-library;
-
-export 'src/network.dart';
+export 'src/rest/rest_client.dart';

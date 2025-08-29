@@ -1,13 +1,5 @@
-# melos_managed_dependency_overrides: auth_data,auth_di,auth_domain,auth_presentation,core_bloc,core_flutter_bloc,core_network,core_theme,core_util,data,di,domain,feature_auth,presentation,tool_base_component,tool_base_network,tool_base_theme
+# melos_managed_dependency_overrides: core_bloc,core_flutter_bloc,core_network,core_theme,core_util,feature_auth,tool_component,tool_network,tool_theme
 dependency_overrides:
-  auth_data:
-    path: ../../feature/auth/data
-  auth_di:
-    path: ../../feature/auth/di
-  auth_domain:
-    path: ../../feature/auth/domain
-  auth_presentation:
-    path: ../../feature/auth/presentation
   core_bloc:
     path: ../../core/bloc
   core_flutter_bloc:
@@ -18,19 +10,11 @@ dependency_overrides:
     path: ../../core/theme
   core_util:
     path: ../../core/util
-  data:
-    path: ../data
-  di:
-    path: ../di
-  domain:
-    path: ../domain
   feature_auth:
-    path: ../../feature/auth/target/base
-  presentation:
-    path: ../presentation
-  tool_base_component:
-    path: ../../tool/base/component
-  tool_base_network:
-    path: ../../tool/base/network
-  tool_base_theme:
-    path: ../../tool/base/theme
+    path: ../../feature/auth
+  tool_component:
+    path: ../../tool/component
+  tool_network:
+    path: ../../tool/network
+  tool_theme:
+    path: ../../tool/theme

@@ -1,19 +1,23 @@
 import 'package:core_bloc/bloc.dart';
+import 'package:core_flutter_bloc/src/internal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:core_flutter_bloc/src/internal.dart';
-
-class FlowBlocConsumer<BlocT extends BlocBase<IFlowState<DataT>>, DataT>
-    extends BlocConsumer<BlocT, IFlowState<DataT>> {
+class FlowBlocConsumer<BlocT extends BlocBase<FlowState<DataT>>, DataT>
+    extends BlocConsumer<BlocT, FlowState<DataT>> {
   const FlowBlocConsumer({
-    required BlocWidgetBuilder<IFlowState<DataT>> builder,
-    required BlocWidgetListener<IFlowState<DataT>> listener,
+    required BlocWidgetBuilder<FlowState<DataT>> builder,
+    required BlocWidgetListener<FlowState<DataT>> listener,
     super.key,
     super.bloc,
-    BlocBuilderCondition<IFlowState<DataT>>? buildWhen,
-    BlocListenerCondition<IFlowState<DataT>>? listenWhen,
-  }) : super(builder: builder, listener: listener, buildWhen: buildWhen, listenWhen: listenWhen);
+    BlocBuilderCondition<FlowState<DataT>>? buildWhen,
+    BlocListenerCondition<FlowState<DataT>>? listenWhen,
+  }) : super(
+         builder: builder,
+         listener: listener,
+         buildWhen: buildWhen,
+         listenWhen: listenWhen,
+       );
 
   factory FlowBlocConsumer.when({
     Key? key,
@@ -24,16 +28,16 @@ class FlowBlocConsumer<BlocT extends BlocBase<IFlowState<DataT>>, DataT>
     BlocWidgetBuilder<EmptyState<DataT>>? empty,
     BlocWidgetBuilder<DataState<DataT>>? data,
     BlocWidgetBuilder<ErrorState<DataT>>? error,
-    BlocWidgetBuilder<IFlowState<DataT>>? orElse,
-    BlocBuilderCondition<IFlowState<DataT>>? buildWhen,
+    BlocWidgetBuilder<FlowState<DataT>>? orElse,
+    BlocBuilderCondition<FlowState<DataT>>? buildWhen,
     BlocWidgetListener<IdleState<DataT>>? onIdle,
     BlocWidgetListener<LoadingState<DataT>>? onLoading,
     BlocWidgetListener<LoadMoreState<DataT>>? onLoadMore,
     BlocWidgetListener<EmptyState<DataT>>? onEmpty,
     BlocWidgetListener<DataState<DataT>>? onData,
     BlocWidgetListener<ErrorState<DataT>>? onError,
-    BlocWidgetListener<IFlowState<DataT>>? onElse,
-    BlocListenerCondition<IFlowState<DataT>>? listenWhen,
+    BlocWidgetListener<FlowState<DataT>>? onElse,
+    BlocListenerCondition<FlowState<DataT>>? listenWhen,
   }) {
     return FlowBlocConsumer<BlocT, DataT>(
       key: key,

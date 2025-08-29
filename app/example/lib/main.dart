@@ -1,37 +1,23 @@
-import 'dart:async';
-
+import 'package:core_network/network.dart';
+import 'package:example/app.dart';
 import 'package:example/di/injectable.dart';
-import 'package:example/route/route.dart';
+import 'package:example/flavors.dart';
 import 'package:flutter/material.dart';
-import 'package:tool_base_theme/theme.dart';
+import 'package:flutter/services.dart';
 
-Future<void> main() async {
-  runZonedGuarded(
-    () async {
-      // await dotenv.load(fileName: F.envPath);
-      await configureDependencies();
-      runApp(const App());
-    },
-    (e, s) {
-      // log('runZonedGuarded: Caught error: $error');
-      // log('runZonedGuarded: StackTrace: $stackTrace');
-      // sl<SentryService>().captureException(error, stackTrace: stackTrace);
-    },
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  /// 개발 환경 설정
+  F.appFlavor = Flavor.values.firstWhere(
+    (element) => element.name == appFlavor,
   );
-}
 
-class App extends StatelessWidget {
-  const App({super.key});
+  /// 의존성 주입
+  await configureDependencies();
 
-  @override
-  Widget build(BuildContext context) {
-    return FTheme(
-      themeData: FThemeData.light(),
-      child: MaterialApp.router(
-        themeMode: ThemeMode.light,
-        routerConfig: sl<AppRouter>().routerConfig,
-        supportedLocales: [const Locale('ko')],
-      ),
-    );
-  }
+  /// 네트워크 초기화
+  sl<RestClient>().update(baseUrl: 'http://127.0.0.1:3000');
+
+  runApp(const App());
 }

@@ -1,7 +1,8 @@
 import 'package:core_util/util.dart';
-import 'package:example/features/splash/pages/splash_page.dart';
+import 'package:example/feature/main/presentation/page/main_page.dart';
+import 'package:example/feature/splash/presentation/%08page/splash_bloc_provider.dart';
+import 'package:example/feature/splash/presentation/%08page/splash_page.dart';
 import 'package:example/route/route_key.dart';
-import 'package:example/route/scaffold_with_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -39,33 +40,11 @@ class AppRouter {
   late final StatefulShellBranch _myBranch;
 
   AppRouter(this._routeKey) {
-    /// GoRouter 설정
-    routerConfig = GoRouter(
-      initialLocation: AppRoute.splash.path,
-      navigatorKey: _routeKey.rootNavigatorKey,
-      observers: [],
-      debugLogDiagnostics: true,
-      redirect: null,
-      routes: _routes,
-      errorBuilder: (context, state) =>
-          Scaffold(body: Center(child: Text('Page not found: ${state.uri}'))),
-    );
-
-    /// 전체 라우트
-    _routes = [_splashRoute, _shellRoute];
-
-    /// Shell 라우트
-    _shellRoute = StatefulShellRoute.indexedStack(
-      branches: <StatefulShellBranch>[_homeBranch, _myBranch],
-      builder: (context, state, navigationShell) =>
-          ScaffoldWithNav(navigationShell: navigationShell),
-    );
-
     /// 스플래시 라우트
     _splashRoute = _goRoute(
       AppRoute.splash,
       builder: (context, state) {
-        return const SplashPage();
+        return const SplashBlocProvider(child: SplashPage());
       },
     );
 
@@ -76,7 +55,7 @@ class AppRouter {
         _goRoute(
           AppRoute.home,
           builder: (context, state) {
-            return const SizedBox.shrink();
+            return const Center(child: Text('Home'));
           },
           routes: [
             _goRoute(
@@ -97,10 +76,32 @@ class AppRouter {
         _goRoute(
           AppRoute.my,
           builder: (context, state) {
-            return const SizedBox.shrink();
+            return const Center(child: Text('My'));
           },
         ),
       ],
+    );
+
+    /// Shell 라우트
+    _shellRoute = StatefulShellRoute.indexedStack(
+      branches: <StatefulShellBranch>[_homeBranch, _myBranch],
+      builder: (context, state, navigationShell) =>
+          MainPage(navigationShell: navigationShell),
+    );
+
+    /// 전체 라우트
+    _routes = [_shellRoute, _splashRoute];
+
+    /// GoRouter 설정
+    routerConfig = GoRouter(
+      initialLocation: AppRoute.splash.path,
+      navigatorKey: _routeKey.rootNavigatorKey,
+      observers: [],
+      debugLogDiagnostics: true,
+      redirect: null,
+      routes: _routes,
+      errorBuilder: (context, state) =>
+          Scaffold(body: Center(child: Text('Page not found: ${state.uri}'))),
     );
   }
 

@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 
-abstract class ICoreFirebase {
+abstract class CoreFirebase {
   static Future<void> initialize() async {
     await Firebase.initializeApp();
   }
 }
 
-abstract class ICoreFirebaseRemoteConfig {
+abstract class CoreFirebaseRemoteConfig {
   static Future<void> initialize() async {
     final RemoteConfigSettings settings = RemoteConfigSettings(
       fetchTimeout: const Duration(minutes: 1),
@@ -26,7 +26,8 @@ abstract class ICoreFirebaseRemoteConfig {
   }
 
   static String getString(String key) {
-    final Map<String, RemoteConfigValue> data = FirebaseRemoteConfig.instance.getAll();
+    final Map<String, RemoteConfigValue> data = FirebaseRemoteConfig.instance
+        .getAll();
     if (data.containsKey(key)) {
       return FirebaseRemoteConfig.instance.getString(key);
     }

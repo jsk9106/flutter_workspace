@@ -1,15 +1,15 @@
 import 'package:core_bloc/bloc.dart';
+import 'package:core_flutter_bloc/src/internal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:core_flutter_bloc/src/internal.dart';
-
-class FlowBlocBuilder<BlocT extends BlocBase<IFlowState<DataT>>, DataT> extends BlocBuilder<BlocT, IFlowState<DataT>> {
+class FlowBlocBuilder<BlocT extends BlocBase<FlowState<DataT>>, DataT>
+    extends BlocBuilder<BlocT, FlowState<DataT>> {
   const FlowBlocBuilder({
-    required BlocWidgetBuilder<IFlowState<DataT>> builder,
+    required BlocWidgetBuilder<FlowState<DataT>> builder,
     super.key,
     super.bloc,
-    BlocBuilderCondition<IFlowState<DataT>>? buildWhen,
+    BlocBuilderCondition<FlowState<DataT>>? buildWhen,
   }) : super(builder: builder, buildWhen: buildWhen);
 
   factory FlowBlocBuilder.when({
@@ -21,8 +21,8 @@ class FlowBlocBuilder<BlocT extends BlocBase<IFlowState<DataT>>, DataT> extends 
     BlocWidgetBuilder<EmptyState<DataT>>? empty,
     BlocWidgetBuilder<DataState<DataT>>? data,
     BlocWidgetBuilder<ErrorState<DataT>>? error,
-    BlocWidgetBuilder<IFlowState<DataT>>? orElse,
-    BlocBuilderCondition<IFlowState<DataT>>? buildWhen,
+    BlocWidgetBuilder<FlowState<DataT>>? orElse,
+    BlocBuilderCondition<FlowState<DataT>>? buildWhen,
   }) {
     return FlowBlocBuilder<BlocT, DataT>(
       key: key,

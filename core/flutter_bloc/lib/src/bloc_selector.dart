@@ -1,10 +1,14 @@
 import 'package:core_bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FlowBlocSelector<BlocT extends BlocBase<IFlowState<DataT>>, DataT, Selector>
-    extends BlocSelector<BlocT, IFlowState<DataT>, Selector> {
+class FlowBlocSelector<
+  BlocT extends BlocBase<FlowState<DataT>>,
+  DataT,
+  Selector
+>
+    extends BlocSelector<BlocT, FlowState<DataT>, Selector> {
   const FlowBlocSelector({
-    required BlocWidgetSelector<IFlowState<DataT>, Selector> selector,
+    required BlocWidgetSelector<FlowState<DataT>, Selector> selector,
     required BlocWidgetBuilder<Selector> builder,
     super.key,
     super.bloc,
