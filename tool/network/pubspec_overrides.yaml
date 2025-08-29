@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: core_network,core_util
+dependency_overrides:
+  core_network:
+    path: ../../core/network
+  core_util:
+    path: ../../core/util

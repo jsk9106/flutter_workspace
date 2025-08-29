@@ -1,0 +1,20 @@
+name: tool_network
+description: tool network package.
+publish_to: none
+
+environment:
+  sdk: ^3.9.0
+  flutter: "^3.32.8"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  core_network:
+    path: ../../core/network
+  core_util:
+    path: ../../core/util
+
+dev_dependencies:
+  build_runner: 2.7.0
+  injectable_generator: 2.8.1
