@@ -9,22 +9,24 @@ import 'dart:async' as _i687;
 import 'package:core_network/network.dart' as _i545;
 import 'package:injectable/injectable.dart' as _i526;
 
-import '../../network.dart' as _i647;
-import 'injectable.dart' as _i1027;
+import '../api/notification_api.dart' as _i5;
+import '../api/post_api.dart' as _i935;
+import '../api/profile_api.dart' as _i79;
+import '../rest/rest_client.dart' as _i211;
 
 class ToolNetworkPackageModule extends _i526.MicroPackageModule {
-// initializes the registration of main-scope dependencies inside of GetIt
+  // initializes the registration of main-scope dependencies inside of GetIt
   @override
   _i687.FutureOr<void> init(_i526.GetItHelper gh) {
-    final networkModule = _$NetworkModule();
-    gh.lazySingleton<_i545.RestClient>(() => networkModule.restClient);
-    gh.lazySingleton<_i647.NotificationApi>(
-        () => networkModule.notificationApi(gh<_i545.RestClient>()));
-    gh.lazySingleton<_i647.PostApi>(
-        () => networkModule.postApi(gh<_i545.RestClient>()));
-    gh.lazySingleton<_i647.ProfileApi>(
-        () => networkModule.profileApi(gh<_i545.RestClient>()));
+    gh.lazySingleton<_i545.RestClient>(() => _i211.FRestClient());
+    gh.lazySingleton<_i79.ProfileApi>(
+      () => _i79.ProfileApi(gh<_i545.RestClient>()),
+    );
+    gh.lazySingleton<_i935.PostApi>(
+      () => _i935.PostApi(gh<_i545.RestClient>()),
+    );
+    gh.lazySingleton<_i5.NotificationApi>(
+      () => _i5.NotificationApi(gh<_i545.RestClient>()),
+    );
   }
 }
-
-class _$NetworkModule extends _i1027.NetworkModule {}

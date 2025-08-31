@@ -7,6 +7,7 @@ export 'src/dialog.dart';
 export 'src/divider.dart';
 export 'src/icon.dart';
 export 'src/image.dart';
+export 'src/scaffold.dart';
 export 'src/search.dart';
 export 'src/sort_filter.dart';
 export 'src/tile.dart';

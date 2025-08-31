@@ -1,0 +1,27 @@
+name: feature_test
+description: feature test package.
+publish_to: none
+
+environment:
+  sdk: ^3.9.0
+  flutter: "^3.32.8"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  core_flutter_bloc:
+    path: ../../core/flutter_bloc
+  core_util:
+    path: ../../core/util
+
+  tool_component:
+    path: ../../tool/component
+  tool_theme:
+    path: ../../tool/theme
+  tool_network:
+    path: ../../tool/network
+
+dev_dependencies:
+  build_runner: 2.7.0
+  injectable_generator: 2.8.1

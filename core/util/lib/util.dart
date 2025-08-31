@@ -3,6 +3,7 @@ export 'package:equatable/equatable.dart';
 export 'package:event_bus/event_bus.dart';
 export 'package:gap/gap.dart';
 export 'package:get_it/get_it.dart';
+export 'package:go_router/go_router.dart';
 export 'package:injectable/injectable.dart';
 
 export 'src/converter/json.dart';

@@ -1,6 +1,6 @@
 import 'package:example/di/injectable.dart';
 import 'package:example/flavors.dart';
-import 'package:example/route/route.dart';
+import 'package:example/route/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tool_theme/theme.dart';

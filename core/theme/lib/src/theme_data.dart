@@ -5,7 +5,7 @@ abstract class CoreThemeData {
   final CoreAppBarTheme appBarTheme;
   final CoreTextTheme textTheme;
   final CoreColorScheme colorScheme;
-  final CoreNavigationBarThemeData navigationBarThemeData;
+  final CoreNavigationBarTheme navigationBarThemeData;
   final CoreDialogTheme dialogTheme;
   final CoreDividerTheme dividerTheme;
 
@@ -47,11 +47,11 @@ abstract class CoreColorScheme {
   const CoreColorScheme({required this.brightness});
 }
 
-abstract class CoreNavigationBarThemeData {
+abstract class CoreNavigationBarTheme {
   final Color backgroundColor;
   final double height;
 
-  const CoreNavigationBarThemeData({
+  const CoreNavigationBarTheme({
     required this.backgroundColor,
     required this.height,
   });

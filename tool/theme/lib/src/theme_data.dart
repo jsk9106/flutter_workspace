@@ -19,7 +19,7 @@ class FThemeData extends CoreThemeData {
       appBarTheme: FAppBarTheme.light(),
       textTheme: const FTextTheme(),
       colorScheme: FColorScheme.light(),
-      navigationBarThemeData: FNavigationBarThemeData.light(),
+      navigationBarThemeData: FNavigationBarTheme.light(),
       dialogTheme: FDialogTheme.light(),
       dividerTheme: FDividerTheme.light(),
     );
@@ -30,7 +30,7 @@ class FThemeData extends CoreThemeData {
       appBarTheme: FAppBarTheme.dark(),
       textTheme: const FTextTheme(),
       colorScheme: FColorScheme.dark(),
-      navigationBarThemeData: FNavigationBarThemeData.dark(),
+      navigationBarThemeData: FNavigationBarTheme.dark(),
       dialogTheme: FDialogTheme.dark(),
       dividerTheme: FDividerTheme.dark(),
     );
@@ -195,18 +195,18 @@ class FColorScheme extends CoreColorScheme {
   Color get gray900 => isDarkMode ? ColorName.gray900 : ColorName.gray100;
 }
 
-class FNavigationBarThemeData extends CoreNavigationBarThemeData {
-  const FNavigationBarThemeData({
+class FNavigationBarTheme extends CoreNavigationBarTheme {
+  const FNavigationBarTheme({
     required super.backgroundColor,
     super.height = 58.0,
   });
 
-  factory FNavigationBarThemeData.light() {
-    return const FNavigationBarThemeData(backgroundColor: ColorName.white);
+  factory FNavigationBarTheme.light() {
+    return const FNavigationBarTheme(backgroundColor: ColorName.white);
   }
 
-  factory FNavigationBarThemeData.dark() {
-    return const FNavigationBarThemeData(backgroundColor: ColorName.darkBlack);
+  factory FNavigationBarTheme.dark() {
+    return const FNavigationBarTheme(backgroundColor: ColorName.darkBlack);
   }
 }
 
@@ -274,8 +274,8 @@ extension FThemeDataExtension on BuildContext {
     return themeData.colorScheme as FColorScheme;
   }
 
-  FNavigationBarThemeData get navigationBarThemeData {
-    return themeData.navigationBarThemeData as FNavigationBarThemeData;
+  FNavigationBarTheme get navigationBarThemeData {
+    return themeData.navigationBarThemeData as FNavigationBarTheme;
   }
 
   FDialogTheme get dialogTheme {
