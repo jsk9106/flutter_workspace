@@ -6,7 +6,7 @@ final sl = GetIt.instance;
 @InjectableInit.microPackage(preferRelativeImports: true)
 Future<void> initMicroPackage() async {}
 
-// /// 외부에서 쓸 네트워크 모듈
+/// 외부에서 쓸 네트워크 모듈
 // @module
 // abstract class NetworkModule {
 //   @LazySingleton(as: RestClient)

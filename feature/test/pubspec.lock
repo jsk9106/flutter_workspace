@@ -184,7 +184,7 @@ packages:
     source: path
     version: "0.0.0"
   core_network:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../core/network"
       relative: true

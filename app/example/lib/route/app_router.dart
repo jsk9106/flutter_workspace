@@ -1,5 +1,4 @@
 import 'package:core_util/util.dart';
-import 'package:example/feature/home/presentation/page/test_bloc_provider.dart';
 import 'package:example/presentation/pages/home_page.dart';
 import 'package:example/presentation/pages/splash_bloc_provider.dart';
 import 'package:example/presentation/pages/splash_page.dart';
@@ -58,9 +57,18 @@ class AppRouter {
           path: AppRoute.home.path,
           name: AppRoute.home.name,
           builder: (context, state) {
-            return const TestBlocProvider(child: HomePage());
+            return const HomePage();
           },
-          routes: [...TestRouter.routes()],
+          routes: [
+            ...TestRouter.routes().map(
+              (e) => GoRoute(
+                parentNavigatorKey: _routeKey.rootNavigatorKey,
+                path: e.path,
+                name: e.name,
+                builder: e.builder,
+              ),
+            ),
+          ],
         ),
       ],
     );

@@ -14,6 +14,11 @@ class NotificationApi {
   }
 
   Future<dynamic> test() {
-    return Future.value('test data');
+    return _client
+        .get<dynamic>(
+          '/campaign/tnk/place_save?adid=${DateTime.now().millisecondsSinceEpoch}&cbid=${DateTime.now().millisecondsSinceEpoch * 2}_dfg}',
+        )
+        .then((value) => value.data);
+    // return Future.value('test data');
   }
 }
